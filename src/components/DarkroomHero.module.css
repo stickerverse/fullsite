@@ -1,0 +1,377 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* CSS Variables */
+.content {
+  --color-text: #f0f3f8;
+  --color-bg: #000;
+  --color-link: #f0f3f8;
+  --color-link-hover: #b7bed3;
+  --page-padding: 3rem 1rem;
+}
+
+/* Main content container */
+.content {
+  padding: var(--page-padding);
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--color-text);
+  background: url('/474979068_1995194667640793_7993899386284265998_n.jpg') center center / cover no-repeat fixed;
+  font-family: "Reddit Sans", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 550;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Screen reader text */
+.screenReaderText {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+}
+
+/* Rail - Main text container */
+.rail {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.railContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.railSizing {
+  position: relative;
+  opacity: 0;
+  height: auto;
+  width: 420vw;
+}
+
+@media screen and (min-width: 53em) {
+  .railSizing {
+    width: 232vw;
+  }
+}
+
+/* Clipped text with glowing effect */
+.railClip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  clip-path: url("#contentTitle");
+  -webkit-clip-path: url("#contentTitle");
+  filter: drop-shadow(0 0 8px #3905e2);
+  animation: textMarquee 12s linear infinite;
+  will-change: transform;
+  -webkit-animation: textMarquee 12s linear infinite;
+}
+
+/* Color background for the text */
+.railColor {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    #001eff 40%,
+    #4800ff 40%,
+    #bf61edd7 90%
+  );
+  background-size: cover;
+}
+
+/* Rail gradients */
+.railGradients {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.railGradient {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  opacity: 0.6;
+}
+
+.railGradient.core {
+  transform: translateX(-2vw);
+}
+
+.railGradient.pro {
+  transform: translate(2vw, 2vw);
+}
+
+/* SVG mask positioning */
+.railMask {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Text marquee animation */
+@keyframes textMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-30%);
+  }
+}
+
+/* Floating boxes container */
+.boxes {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(1.75);
+  z-index: 5;
+}
+
+@media screen and (min-width: 53em) {
+  .boxes {
+    transform: scale(1);
+  }
+}
+
+/* Individual box styling */
+.box {
+  position: absolute;
+}
+
+.boxContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxGradient {
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  opacity: 0.4;
+}
+
+.boxImage {
+  position: relative;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Core box positioning and animation */
+.box.core {
+  transform: translate(-7vw, -2.3vw);
+}
+
+.box.core .boxContainer {
+  animation: floatCore 4s ease-in-out 0s alternate infinite;
+}
+
+.box.core .boxImage {
+  width: 26vw;
+  min-width: 150px;
+  max-width: 300px;
+}
+
+.box.core .boxGradient {
+  transform: translateX(-2vw);
+}
+
+/* Pro box positioning and animation */
+.box.pro {
+  transform: translate(7vw, 5vw);
+}
+
+.box.pro .boxContainer {
+  animation: floatPro 3s ease-in-out 0s alternate infinite;
+}
+
+.box.pro .boxImage {
+  width: 22vw;
+  min-width: 120px;
+  max-width: 250px;
+}
+
+.box.pro .boxGradient {
+  transform: translate(2vw, 2vw);
+}
+
+/* Float animations */
+@keyframes floatCore {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(5%);
+  }
+}
+
+@keyframes floatPro {
+  from {
+    transform: translateY(4%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+/* Upload section styling */
+.uploadSection {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.uploadTitle {
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: 'Reddit Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+/* Button styling */
+.designButton,
+.shopButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Reddit Sans', sans-serif;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.shopButton {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+}
+
+.designButton:hover,
+.shopButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.shopButton:hover {
+  box-shadow: 0 8px 25px rgba(240, 147, 251, 0.6);
+}
+
+.buttonEmoji {
+  font-size: 1.2rem;
+}
+
+.uploadDescription {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-family: 'Reddit Sans', sans-serif;
+  margin: 1rem 0 0 0;
+}
+
+/* Responsive adjustments */
+@media screen and (min-width: 53em) {
+  .content {
+    --page-padding: 2rem 3rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .railColor,
+  .railClip,
+  .boxContainer {
+    animation: none !important;
+  }
+}
+
+/* Mobile optimizations */
+@media screen and (max-width: 768px) {
+  .uploadTitle {
+    font-size: 1.2rem;
+  }
+  
+  .buttonContainer {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .designButton,
+  .shopButton {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .box.core .boxImage {
+    width: 35vw;
+    min-width: 120px;
+  }
+  
+  .box.pro .boxImage {
+    width: 30vw;
+    min-width: 100px;
+  }
+}
