@@ -1,0 +1,9 @@
+[submodule "diecut"]
+	path = diecut
+	url = https://github.com/stickerverse/diecut.git
+[submodule "homepage"]
+	path = homepage
+	url = https://github.com/stickerverse/homepage.git
+[submodule "imagen-header-rebuild"]
+	path = imagen-header-rebuild
+	url = https://github.com/stickerverse/imagen-header-rebuild.git
